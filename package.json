@@ -1,0 +1,29 @@
+{
+  "name": "food_app",
+  "version": "1.0.0",
+  "description": "Delivery app",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Ganesh",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ganesh336699/food_app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ganesh336699/food_app/issues"
+  },
+  "homepage": "https://github.com/Ganesh336699/food_app#readme"
+}
