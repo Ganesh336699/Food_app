@@ -30,7 +30,7 @@ const AppLayout = () => {
 
     return (
         
-           <div class="app">
+           <div className="app">
              <Header/>
              <Body/>
              <Footer/>

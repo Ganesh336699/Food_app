@@ -69,19 +69,30 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    border: 1px solid #c9c8c8;
+    /* border: 1px solid #c9c8c8; */
     padding: 0px 10px;
     border-radius: 10px;
     font-size: 1.2rem;
   }
-  .search-box > input {
+  .search-box > input  {
     height: 40px;
     padding: 0px 10px;
     outline: none;
     border: none;
     background-color: #f1f1f1;
+    border: 1px solid #c9c8c8;
+    border-radius: 50;
     width: 90%;
     font-size: 1.2rem;
+  }
+  .search-btn {
+    
+    height: 40px;
+    border-radius: 10;
+    width: 60px;
+    border: 1px solid #c9c8c8;
+    cursor: pointer;
+
   }
 
   .res-container {
@@ -114,6 +125,7 @@ body {
 
     padding: 10px;
 }
+
 
 .res-logo {
     width: 100%;
