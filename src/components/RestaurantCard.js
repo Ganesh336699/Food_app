@@ -15,14 +15,14 @@ const Reastaurantcard = (props) => {
 
     return (
        
-          <div className="res-card">
+          <div className="restaurant-card">
              <img 
-                className="res-logo" 
+                className="restaurant-logo" 
                 alt="res-logo " 
                 src={ IMG_CDN_URL + cloudinaryImageId }/>
               
-              <div className="res-details">
-              <h3 className="res-name">{name}</h3>
+              <div className="restaurant-details">
+              <h3 className="restaurant-name">{name}</h3>
               <div className="esa-rating">
               <h4 className="rating"><span>{avgRating} stars</span></h4>
               <h4>{costForTwo}</h4>

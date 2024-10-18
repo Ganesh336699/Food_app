@@ -1,11 +1,11 @@
-
+import { useState } from "react";
 
 Title = () => (
 
  <a href="/"> 
  <img
   className="logo"
-   src="https://graphicsfamily.com/wp-content/uploads/2020/10/Restaurant-logo-design-free-template-scaled.jpg" 
+   src="https://lh3.googleusercontent.com/7kfhqCOmv17p7RDVZulmcFmKYiCmF8gYAEGRDOt3mfK8rwH1skFf8n_m3bGmLbnvWAiWVsIFE8Pk2i2ui_dvnpTZI9QSm4ylXQGRVPAjbQ=w1200-rw" 
    />
    </a>
 );
@@ -14,6 +14,9 @@ Title = () => (
 
 
 export const Header = () => {
+
+    const [LoggedIn , setLoggedIn] = useState(false);
+
 
     return (
        
@@ -27,9 +30,17 @@ export const Header = () => {
                     <li>About Us</li>
                     <li>Contact Us</li>
                     <li>Cart</li>
+                    {
+                (LoggedIn ?
+                     (<button className="login" onClick = {() => setLoggedIn(false)}>Logout</button>) :
+                     (<button className="login" onClick = {() => setLoggedIn(true)}>Login</button>)
+                    )
+               }
                </ul>
+              
              </div>
+             
         </div>
-    )
-}
+    );
+};
 export default Header;

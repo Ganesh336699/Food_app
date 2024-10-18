@@ -1,101 +1,121 @@
-/* css for body background */
-body {
-    background-color: #f1f1f1;
-}
-
-/* select all css*/
+/* Select all CSS */
 * {
-    margin:0;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-}
-
-
-
-/* restaurant header component*/
-
-.header {
-    width: auto;
+  }
+  
+  /* CSS for scroll-bar */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  body {
+    background-color: rgb(52, 49, 49);
+  }
+  
+  /* create global variable with :root selector */
+  :root {
+    --header-bg-color: rgb(255, 255, 255);
+    --footer-bg-color: rgb(255, 255, 255);
+    --body-bg-color: #e3e3e3;
+    --text-color: #000;
+    --green: #00ad1d;
+    --orange: #ffa500;
+    --red: #ff0000;
+    --box-shadow: 0 0 10px rgba(216, 215, 215, 0.1);
+    --border-radius: 10px;
+    --light-text-color: #545454;
+    --white: #fff;
+  }
+  
+  .app {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Restaurant Header CSS */
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 3%;
-    background-color: #e7e6e6;
-    box-shadow: 0 0 10px rgba(216, 215, 215, 0.1);
+    width: 100vw;
+    height: 80px;
+    background-color: var(--header-bg-color);
+    box-shadow: -2px 7px 5px -6px rgba(0, 0, 0, 0.61);
+    color: var(--light-text-color);
+    font-weight: bold;
     position: fixed;
     top: 0;
-    right: 0;
     left: 0;
-    z-index: 1000;
-}
-.logo {
-
+    z-index: 999;
+    overflow-y: hidden;
+    padding: 0px 20px;
+  }
+  
+  .logo {
     width: 60px;
     height: 60px;
     border-radius: 50%;
     cursor: pointer;
-}
-.nav-items > ul {
-     
-    display: flex;
-}
-.nav-items > ul > li {
-    
-    list-style: none;
-    color: #333;
-    font-size: 1.2em;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 0px 12px;
-}
-.nav-items > ul > li:hover {
-    color: orange;
   }
-
-
-  /*Restaurant body*/
-  .body {
-     width: 100%;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     margin-top: 120px;
-  }
-  .search-box {
-
-    width: 50%;
+  
+  .nav-items > ul {
+    list-style-type: none;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-    /* border: 1px solid #c9c8c8; */
-    padding: 0px 10px;
+    justify-content: space-between;
+  }
+  
+  .nav-items > ul > li, .login {
+    margin-left: 3px;
+    padding: 10px;
     border-radius: 10px;
-    font-size: 1.2rem;
-  }
-  .search-box > input  {
-    height: 40px;
-    padding: 0px 10px;
-    outline: none;
-    border: none;
-    background-color: #f1f1f1;
-    border: 1px solid #c9c8c8;
-    border-radius: 50;
-    width: 90%;
-    font-size: 1.2rem;
-  }
-  .search-btn {
-    
-    height: 40px;
-    border-radius: 10;
-    width: 60px;
-    border: 1px solid #c9c8c8;
     cursor: pointer;
-
+  }
+  
+  .nav-items > ul > li:hover, .login:hover {
+    background-color: var(--orange);
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--white);
   }
 
-  .res-container {
+
+  /* Restaurant Body CSS */
+  .body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 120px;
+    transition: 0.3s;
+  }
+  
+  .restaurant-container,
+  .shimmer-container {
     width: 85%;
     display: flex;
     flex-wrap: wrap;
@@ -104,62 +124,121 @@ body {
     column-gap: 2%;
     row-gap: 20px;
   }
-
-
-.res-card {
-     
-   width: 250px;
-   height: 300px;
-   background-color: #fff;
-   border-radius: 8px;
-   box-shadow: 0 0 10px rgba(96, 96, 96, 0.1);
-   cursor: pointer;
-}
-
-.res-card:hover {
-    
-    transform: scale(0.99);
-} 
-
-.search {
-
-    padding: 10px;
-}
-
-
-.res-logo {
-    width: 100%;
-   height: 65%;
-   margin: 0px;
-   border-radius: 8px 8px 0px 0px;  
-}
-.res-name {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 5px 0px;
+  
+  .shimmer-container {
+    margin-top: 120px;
   }
-  .res-details {
+  
+  .restaurant-card,
+  .shimmer-card {
+    width: 250px;
+    height: 300px;
+    background-color: rgb(52, 49, 49);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+  }
+  
+  .shimmer-card {
+    background-color: #4d4c4c;
+  }
+  
+  .restaurant-card:hover {
+    transform: scale(0.99);
+  }
+  
+  .search-box {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border: 2px solid rgb(76, 73, 73);
+    border-radius: var(--border-radius);
+  }
+  
+  .shimmer-search-box {
+    width: 50%;
+    height: 50px;
+    background-color: #4d4c4c;
+    border-radius: var(--border-radius);
+    margin-bottom: 30px;
+  }
+  
+  .search-box > input {
+    color: var(--white);
+    padding: 10px;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 90%;
+  }
+  
+  .search-box > .search-btn {
+    font-size: 1.2rem;
+    color: white;
+    background-color: rgb(68, 70, 72);
+    cursor: pointer;
+    border-radius: 0px var(--border-radius) var(--border-radius) 0px;
+    border: none;
+    padding: 10px;
+  }
+  
+  .search-box > .search-btn:hover {
+    background-color: rgb(26, 25, 25);
+    transition: 0.3s;
+  }
+  
+  .search-btn {
+    padding: 10px;
+  }
+  
+  .restaurant-logo {
+    width: 100%;
+    height: 65%;
+    border-radius: var(--border-radius) var(--border-radius) 0px 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .restaurant-details {
+    color: var(--white);
     height: fit-content;
     padding: 0px 10px;
     overflow: hidden;
     font-size: 15px;
   }
+  
+  .restaurant-name {
+    
+    font-weight: 700;
+    margin: 5px 0px;
+  }
+  
   .esa-rating {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 5px 0px;
     margin-right: 10px;
+    color: var(--white);
   }
   
   .rating {
     display: flex;
     align-items: center;
   }
+  
+  
+  
   .cousine,
-.location {
-  color: #828080;
-  font-weight: 500;
-  font-size: 16px;
-  padding-bottom: 5px;
-}
+  .location {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 16px;
+    padding-bottom: 5px;
+  }
+  .body > .restaurant-container > h2 {
+
+    color: #f1f1f1;
+  }
