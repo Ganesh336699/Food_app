@@ -1,11 +1,13 @@
 import { useState } from "react";
+import logo from "../assets/images/icon-logo.jpg";
+import { Link } from "react-router-dom";
 
 Title = () => (
 
  <a href="/"> 
  <img
   className="logo"
-   src="https://lh3.googleusercontent.com/7kfhqCOmv17p7RDVZulmcFmKYiCmF8gYAEGRDOt3mfK8rwH1skFf8n_m3bGmLbnvWAiWVsIFE8Pk2i2ui_dvnpTZI9QSm4ylXQGRVPAjbQ=w1200-rw" 
+   src={logo}
    />
    </a>
 );
@@ -26,9 +28,18 @@ export const Header = () => {
 
              <div className="nav-items">
                 <ul>
-                    <li>Home</li>
+                   <Link to="/">
+                   <li>Home</li>
+                   </Link> 
+
+                    <Link to="/about">
                     <li>About Us</li>
+                    </Link>
+
+                    <Link to="/contact">
                     <li>Contact Us</li>
+                    </Link>
+                    
                     <li>Cart</li>
                     {
                 (LoggedIn ?
