@@ -28,19 +28,20 @@ export const Header = () => {
 
              <div className="nav-items">
                 <ul>
-                   <Link to="/">
+                   <Link  className="nav-links" to="/">
                    <li>Home</li>
                    </Link> 
 
-                    <Link to="/about">
+                    <Link   className="nav-links" to="/about">
                     <li>About Us</li>
                     </Link>
 
-                    <Link to="/contact">
+                    <Link className="nav-links" to="/contact">
                     <li>Contact Us</li>
                     </Link>
-                    
+                    <Link className="nav-links" >
                     <li>Cart</li>
+                    </Link>
                     {
                 (LoggedIn ?
                      (<button className="login" onClick = {() => setLoggedIn(false)}>Logout</button>) :

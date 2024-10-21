@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { IMG_CDN_URL } from "../config";
+import Shimmer, {RestaurantMenuShimmer} from "./Shimmer";
+import "../RestaurantMenu.css" ;
 
 const RestaurantMenu = () => {
     const params = useParams();
@@ -54,33 +56,86 @@ const RestaurantMenu = () => {
         });
 
         setrestaurantMenu(items);
-    }
+    };
+
+
+    // if(restaurant == null) { return <RestaurantMenuShimmer /> ;}
+
+
+
 
     return (
         <div className="body">
-            <h1>{id}</h1>
-            {restaurant.name ? (
-                <h1>{restaurant.name}</h1>
+            <div className="menu">
+            <div className="restaurant-header">
+        <img src={IMG_CDN_URL + restaurant.cloudinaryImageId} alt={restaurant.name} />
+        <div className="restaurant-header-details">
+           <h1>{restaurant.name}</h1>
+           <h3>{restaurant.locality}</h3>
+          <p>{restaurant.cuisines?.join(", ")}</p>
+          <h4 className="rating-time">
+            <div className="rating">
+            
+              <span>
+                {restaurant.avgRatingString || 3.8} ({restaurant.alttotalRatingsString || "1K+ ratings"})
+              </span>
+            </div>
+            <span>|</span>
+            <span className="time">{restaurant.sla?.slaString}</span>
+          </h4>
+          </div>
+            </div>
+
+            { restaurantMenu.length ? (
+
+             restaurantMenu.map((dish) => {
+
+  const {
+    id,
+    name,
+    price,
+    defaultPrice,
+    ratings,
+    imageId,
+    description,
+  } = dish;
+
+
+  return (
+    <div key={id} className="menu-items">
+      <div className="left">
+        <h2>{name}</h2>
+        <h4>₹{price / 100 || defaultPrice / 100}</h4>
+        <p>{description && description.slice(0, 60) || "Dummy"}</p>
+        <h4 className="rating">
+         
+          <span>
+            {ratings?.aggregatedRating?.rating || 3.8} (
+            {ratings?.aggregatedRating?.ratingCountV2 || 6})
+          </span>
+        </h4>
+      </div>
+      <div className="right">
+        <img src={IMG_CDN_URL + imageId} alt={name} />
+        <button className="add-btn">ADD</button>
+      </div>
+    </div>
+  );
+})
             ) : (
-                <h1>Loading restaurant info...</h1>
+
+                <RestaurantMenuShimmer/>
+    
+                // <h2>No items available</h2>
             )}
-            {restaurant.cloudinaryImageId ? (
-                <img src={IMG_CDN_URL + restaurant.cloudinaryImageId} alt={restaurant.name} />
-            ) : (
-                <p>Loading image...</p>
-            )}
-            <h1>Menu</h1>
-            <ul>
-                {restaurantMenu.length > 0 ? (
-                    restaurantMenu.map((dish, index) => (
-                        <li key={index}>{dish.name}</li>
-                    ))
-                ) : (
-                    <li>No dishes available</li>
-                )}
-            </ul>
+        
         </div>
+        </div>
+        
     );
 };
 
-export default RestaurantMenu;
+
+
+
+export default RestaurantMenu ;
