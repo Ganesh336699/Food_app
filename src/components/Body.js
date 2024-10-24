@@ -4,6 +4,7 @@ import { useState ,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/Helper";
+import useOnline from "../utils/useOnline";
 
 
 
@@ -38,7 +39,8 @@ const Body = () => {
 
     };
 
-
+   const isOnline = useOnline();
+   if( !isOnline  ) { return <div className="body"><h1>You are offline </h1></div>}
 
    
     return restaurants.length === 0 ? <Shimmer/> : (

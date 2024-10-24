@@ -318,3 +318,12 @@ a, Link {
   background-color: var(--btn-hover-color);
   transition: 0.3s;
 }
+
+
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

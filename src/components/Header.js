@@ -33,7 +33,7 @@ export const Header = () => {
                    </Link> 
 
                     <Link   className="nav-links" to="/about">
-                    <li>About Us</li>
+                    <li >About Us</li>
                     </Link>
 
                     <Link className="nav-links" to="/contact">

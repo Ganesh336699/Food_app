@@ -26,7 +26,7 @@ const Reastaurantcard = (props) => {
               <div className="esa-rating">
               <h4 className="rating"><span>{avgRating} stars</span></h4>
               <h4>{costForTwo}</h4>
-              <h4>{deliveryTime} mins</h4>
+              <h4>{resData.info.sla.deliveryTime} mins</h4>
               </div>
               <p className="cuisine">{cuisines.join("," )}</p>
               <p className="location">{areaName}</p>
